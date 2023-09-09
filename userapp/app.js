@@ -20,6 +20,6 @@ app.use(cors())
 //Create Database Connection
 
 
-app.listen(port, ()=>{
+app.listen(port,()=>{
     console.log(`Listening port on ${port}`)
 });

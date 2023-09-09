@@ -34,7 +34,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="./plugins/toastr/css/toastr.min.css" rel="stylesheet">
 <!-- Load the coco-ssd model. -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
 
@@ -100,7 +101,10 @@ figcaption{
     font-size: 2.4vmin;
     margin-top: 0.5vmin;
 }
-
+img
+{
+    max-width: 100%;
+}
 
 </style>
 <body class="bg-white">
@@ -151,7 +155,7 @@ figcaption{
                 <div class="images">
 
                 </div>
-                <button type="button" class="btn btn-primary w-100" id="fileuploder">Upload</button>
+                <button type="button" class="btn btn-primary w-100 font-15 p-2 mt-2" id="fileuploder">Upload</button>
                 <a id="seloc" class="btn btn-secondary mb-3 font-15 p-2 mt-2 d-flex align-items-center btn-block">
                     <i class='fas fa-location-arrow' style='font-size:24px;color:white;'></i> &nbsp;Select Location</a>
                     <div class="mb-2 input-group input-radius" id="location" data-lat="" data-lon="">
@@ -255,8 +259,8 @@ async function getUserLocation() {
       function(position) {
      ulat = position.coords.latitude;
       ulon = position.coords.longitude;
-      alert(ulat)
-      alert(ulon)
+    //   alert(ulat)
+    //   alert(ulon)
       const options = {method: 'GET'};
 
 fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${ulat}&lon=${ulon}`, options)
@@ -290,7 +294,21 @@ fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${ulat}&lon=$
 }
         
     })
+    const ws = new WebSocket('ws://localhost:6500/');
 
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+
+        if (data.type === 'usr') {
+          // Update flashlight state on the UI
+          
+        }
+      };
+
+    //   function toggleFlashlight() {
+        // Send toggle command to server
+       
+    //   }
     $("#post").on("click",function(){
         var type = $('input[name="radio1"]:checked').val();
         var priority = $('input[name="radio2"]:checked').val();
@@ -300,22 +318,24 @@ fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${ulat}&lon=$
        var address= $("#location").html()
         if(title==''){
             // tosat
-            alert("title")
+            swal("Please Enter title", "Title Error")
             return
         }
         if(address==''){
-            // tosat
-            alert("address")
+            swal("Please Enter valid Address", "Address Error")
+            // alert("address")
             return
         }
         if(desp==''){
             // tosat
-            alert("desp")
+            // alert("desp")
+            swal("Please Enter valid Description", "Description Error")
+            // toastr.warning("Please Enter valid Description", "Description Error")
             return
         }
         if(phone==''){
             // tosat
-            alert("phonr")
+           swal("Please Enter valid Phone Number", "Description Error")
             return
         }
         // if(!(is_Animal) && true){
@@ -333,6 +353,10 @@ var otp=''
 for (let j = 0; j < 6; j++) {
   otp += digits[Math.floor(Math.random() * 10)];
 }
+// let uuid=''
+// if(uid==undefined){
+
+// }
 $.ajax({
     url:"http://localhost:9000/caseupload",
     type:"post",
@@ -342,7 +366,9 @@ $.ajax({
     
     success: function(res){
         if(res.status==200){
-          alert("inserted")
+            ws.send(JSON.stringify({ type: 'ngo' ,titl:title,address:address,priority:priority}));
+            swal("Post Uploaded Successfully")
+        //   alert("inserted")
 
     
           console.log(res)
@@ -356,8 +382,8 @@ $.ajax({
 })
 
 
-        alert(type)
-        alert(priority)
+        // alert(type)
+        // alert(priority)
 
     })
 
@@ -371,7 +397,7 @@ $.ajax({
   var imagesPreview = function(input, placeToInsertImagePreview) {
     if (input.files) {
       var filesAmount = input.files.length;
-      alert(99)
+    //   alert(99)
 
       for (var i = 0; i < filesAmount; i++) {
         var reader = new FileReader();
@@ -431,7 +457,7 @@ const files = input.files;
  var is_animal=1
 var img_array;
   $("#fileuploder").on("click",async function(){
-alert(0)
+// alert(0)
 const files = $("#picfile")[0].files;
 
 const formData = new FormData();
@@ -488,7 +514,7 @@ i++
 
 // console.log(json.response)
 
-        alert("Files uploaded successfully!");
+       swal("Files uploaded successfully!");
       } else {
         alert("An error occurred during file upload.");
       }
@@ -519,7 +545,8 @@ i++
 
 </script>
 
-
+<script src="./plugins/toastr/js/toastr.min.js"></script>
+<script srbefore bbodyc="./plugins/toastr/js/toastr.init.js"></script>
 <script src="assets/js/jquery.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/dz.carousel.js"></script><!-- Swiper -->

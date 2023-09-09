@@ -40,6 +40,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;family=Roboto+Slab:wght@100;300;500;600;800&amp;display=swap"
         rel="stylesheet">
@@ -61,7 +62,7 @@
                 <div class="container">
                     <div class="header-content">
                         <div class="left-content">
-                            <a href="javascript:void(0);" class="back-btn">
+                            <a id="bck" class="back-btn">
                                 <svg width="18" height="18" viewBox="0 0 10 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -258,6 +259,7 @@
 let query =window.location.search
 let url =new URLSearchParams(query)
 let val=url.get('id')
+
 function load(){
     $.ajax({
             url:"http://localhost:9000/casedesp",
@@ -288,18 +290,20 @@ function load(){
   let id=uid.split('-')
                 if(!(id[1]=="user")){
                     $("#status").html(`<span class="badge badge-danger me-1 mb-1">Active</span>`)
-                    $("#butinner").html(`<a style="color:white" class="btn btn-primary btn-block"> CONFIRM PICKUP</a>`)
+                    $("#butinner").html(`<a style="color:white" class="btn btn-primary btn-block" id="pick"> CONFIRM PICKUP</a>`)
                   
 
                 }
                 if(res.response.status==1 ){
                     $("#status").html(`<span class="badge badge-danger me-1 mb-1">Active</span>`)
                 }
-                else if(res.response.status==2){
+                else if(res.response.status==2 ){
                     $("#status").html(`<span class="badge badge-success me-1 mb-1">In-Active</span>`)
-                    $("#butinner").html(`<a style="color:white" class="btn btn-success w-100 btn-block">Donate</a>`)
+                    $("#butinner").html(`<a style="color:white" class="btn btn-success w-100 btn-block id="donate">Donate</a>`)
                 }
+                // if(!(id[1]=="ngo")){
 
+                // }
                 if(res.response.type==1){
                     $("#type").html(`<span class="badge badge-secondary me-1 mb-1">Stray</span>`)
                   
@@ -391,6 +395,38 @@ console.log('Posted:', postedText);
         })
 }
 load()
+
+$("#bck").on("click",function(){
+ window.location.href="indexngo.html"
+})
+$(document).on("click","#pick",function(){
+    // alert(localStorage.getItem("prani"))
+    let uid=localStorage.getItem("prani");
+  let id=uid.split('-')
+    $.ajax({
+    url:"http://localhost:9000/pick",
+    type:"post",
+    dataType: "json",
+    data: { Uid:id[0],case:val
+    },
+    
+    success: function(dat){
+        if(dat.status==200){
+
+           load()
+        swal("Success","Picked Successfully","succes")
+          
+           window.location.href="tracking-order.html?case=val"
+            // $("#pb").html(dat.response.username)
+        
+         }
+        else if(res.status==500){
+          console.log(res)
+        }
+    }
+})
+
+})
 })
 </script>
     <script src="assets/js/jquery.js"></script>

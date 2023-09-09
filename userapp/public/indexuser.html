@@ -510,48 +510,48 @@
                             else {
                                 pri = "easy"
                             }
-                            const options = {
-                                method: 'GET',
-                                headers: {
-                                    'X-RapidAPI-Key': 'b38251f12dmsh1e354647d127793p1fe19ejsnd617ffc74cff',
-                                    'X-RapidAPI-Host': 'trueway-matrix.p.rapidapi.com'
-                                }
-                            };
-                            if (ulat == '') {
-                                ulat = 0;
-                                ulon = 0;
-                            }
-                            const params = new URLSearchParams({
-                                origins: `${ulat},${ulon}`,
-                                //   origins: `12.906060,77.566570`,
-                                destinations: `${value.latitude},${value.longitude}`,
-                            });
+                            // const options = {
+                            //     method: 'GET',
+                            //     headers: {
+                            //         'X-RapidAPI-Key': 'b38251f12dmsh1e354647d127793p1fe19ejsnd617ffc74cff',
+                            //         'X-RapidAPI-Host': 'trueway-matrix.p.rapidapi.com'
+                            //     }
+                            // };
+                            // if (ulat == '') {
+                            //     ulat = 0;
+                            //     ulon = 0;
+                            // }
+                            // const params = new URLSearchParams({
+                            //     origins: `${ulat},${ulon}`,
+                            //     //   origins: `12.906060,77.566570`,
+                            //     destinations: `${value.latitude},${value.longitude}`,
+                            // });
 
 
-                            const url = `https://trueway-matrix.p.rapidapi.com/CalculateDrivingMatrix?${params}`;
+                            // const url = `https://trueway-matrix.p.rapidapi.com/CalculateDrivingMatrix?${params}`;
 
-                            fetch(url, options)
-                                .then(function (response) {
-                                    if (response.ok) {
-                                        return response.json();
-                                    } else {
-                                        throw new Error('Network response was not ok.');
-                                    }
-                                })
-                                .then(function (data) {
-                                    let distance = ''
+                            // fetch(url, options)
+                            //     .then(function (response) {
+                            //         if (response.ok) {
+                            //             return response.json();
+                            //         } else {
+                            //             throw new Error('Network response was not ok.');
+                            //         }
+                            //     })
+                            //     .then(function (data) {
+                            //         let distance = ''
                                     let you = '--';
                                     let uid = localStorage.getItem("prani");
                                     let id = uid.split('-')
                                     if (id[0] == value.user_id) {
                                         you = "You"
                                     }
-                                    if (data.distances[0] == undefined) {
+                                    // if (data.distances[0] == undefined) {
                                         distance = 'Allow Location---'
-                                    }
-                                    else {
-                                        distance = (data.distances[0] / 1000).toFixed(1);
-                                    }
+                                    // }
+                                    // else {
+                                    //     distance = (data.distances[0] / 1000).toFixed(1);
+                                    // }
                                     var ph = value.photo.split(",")
                                     if (ph == null) {
                                         ph = value.photo;
@@ -562,7 +562,7 @@
                                     $("#posts").append(
                                         `<div  class="item-box" style="flex-direction: column; justify-content: center;align-items: flex-end;">
                             <div class="item-media" style="width: 100%; object-fit: cover;">
-                                <img src="${ph}" alt="food" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
+                                <img src="${ph}" alt="food" class="cases-list" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
                             </div>
                             <div class="item-content" style="padding:10px 15px;" >
                                 <a href="product.html"><h6 class="mb-0">${value.title}</h6></a>
@@ -578,10 +578,10 @@
                                     )
 
                                     // console.log(data.distances[0]);
-                                })
-                                .catch(function (error) {
-                                    console.error(error);
-                                });
+                                // })
+                                // .catch(function (error) {
+                                //     console.error(error);
+                                // });
                             // var ui= await geo('12.892920','77.528310',`${value.latitude}`,`${value.longitude}`);
 
 
@@ -718,43 +718,43 @@
                             else {
                                 pri = "easy"
                             }
-                            const options = {
-                                method: 'GET',
-                                headers: {
-                                    'X-RapidAPI-Key': 'b38251f12dmsh1e354647d127793p1fe19ejsnd617ffc74cff',
-                                    'X-RapidAPI-Host': 'trueway-matrix.p.rapidapi.com'
-                                }
-                            };
-                            if (ulat == '') {
-                                ulat = 0;
-                                ulon = 0;
-                            }
-                            const params = new URLSearchParams({
-                                origins: `${ulat},${ulon}`,
-                                //   origins: `12.906060,77.566570`,
-                                destinations: `${value.latitude},${value.longitude}`,
-                            });
+                            // const options = {
+                            //     method: 'GET',
+                            //     headers: {
+                            //         'X-RapidAPI-Key': 'b38251f12dmsh1e354647d127793p1fe19ejsnd617ffc74cff',
+                            //         'X-RapidAPI-Host': 'trueway-matrix.p.rapidapi.com'
+                            //     }
+                            // };
+                            // if (ulat == '') {
+                            //     ulat = 0;
+                            //     ulon = 0;
+                            // }
+                            // const params = new URLSearchParams({
+                            //     origins: `${ulat},${ulon}`,
+                            //     //   origins: `12.906060,77.566570`,
+                            //     destinations: `${value.latitude},${value.longitude}`,
+                            // });
 
 
-                            const url = `https://trueway-matrix.p.rapidapi.com/CalculateDrivingMatrix?${params}`;
+                            // const url = `https://trueway-matrix.p.rapidapi.com/CalculateDrivingMatrix?${params}`;
 
-                            fetch(url, options)
-                                .then(function (response) {
-                                    if (response.ok) {
-                                        return response.json();
-                                    } else {
-                                        throw new Error('Network response was not ok.');
-                                    }
-                                })
-                                .then(function (data) {
+                            // fetch(url, options)
+                            //     .then(function (response) {
+                            //         if (response.ok) {
+                            //             return response.json();
+                            //         } else {
+                            //             throw new Error('Network response was not ok.');
+                            //         }
+                            //     })
+                            //     .then(function (data) {
                                     let distance = ''
-                                    if (data.distances[0] == undefined) {
+                                    // if (data.distances[0] == undefined) {
                                         distance = 'Allow Location---'
-                                    }
-                                    else {
-                                        distance = (data.distances[0] / 1000).toFixed(1);
+                                    // }
+                                    // else {
+                                    //     distance = (data.distances[0] / 1000).toFixed(1);
 
-                                    }
+                                    // }
                                     var ph = value.photo.split(",")
                                     if (ph == null) {
                                         ph = value.photo;
@@ -780,10 +780,10 @@
                                     )
 
 
-                                })
-                                .catch(function (error) {
-                                    console.error(error);
-                                });
+                                // })
+                                // .catch(function (error) {
+                                //     console.error(error);
+                                // });
                             // var ui= await geo('12.892920','77.528310',`${value.latitude}`,`${value.longitude}`);
 
 

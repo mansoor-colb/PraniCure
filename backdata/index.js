@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const path = require("path");
 const axios = require("axios");
-const WebSocket = require('ws');
+
 // let cron = require('node-cron')
 const multer = require('multer')
 const nodemailer=require('nodemailer')
@@ -22,9 +22,7 @@ let server=app.listen(port, () => {
 	console.log("server started on port 9000...");
 });
 console.log(server)
-const wss = new WebSocket.Server({ server });
-const clients = [];
-var isOn=true;
+
 
 //   ws.on('message', (message) => {
 
@@ -41,19 +39,36 @@ var isOn=true;
 
 app.use(cors())
 
-
+// wss.on('connection', (ws) => {
+//     console.log('New connection');
+    
+//     // Add client to the list of connected clients
+//     clients.push(ws);
+  
+//     // Send initial flashlight state to newly connected device
+//   //   ws.send(JSON.stringify({ type: 'flashlight', isOn }));
+//   ws.on('close', () => {
+//       console.log('Connection closed');
+      
+//       // Remove client from the list of connected clients
+//       const index = clients.indexOf(ws);
+//       if (index !== -1) {
+//         clients.splice(index, 1);
+//       }
+//     });
+// })
 
 //Create Database Connection
 const conn = mysql.createConnection({
-	// host: "localhost",
-	// user: "root",
-	// password: "",
-	// database: "pranicure",
+	host: "localhost",
+	user: "root",
+	password: "",
+	database: "pranicure",
 
-	host: "bkiavxeu5zu9pmpwonnz-mysql.services.clever-cloud.com",
-	user: "uknhl4z8opncvk4m",
-	password: "Tv9ht17Hotg2cwy8cbjS",
-	database: "bkiavxeu5zu9pmpwonnz",
+	// host: "bkiavxeu5zu9pmpwonnz-mysql.services.clever-cloud.com",
+	// user: "uknhl4z8opncvk4m",
+	// password: "Tv9ht17Hotg2cwy8cbjS",
+	// database: "bkiavxeu5zu9pmpwonnz",
 });
 
 // connect to database
@@ -292,33 +307,17 @@ const timeString = `${formattedDate} ${dayOfWeek}`;
 	let query = conn.query(sql, data, (err, result) => {
 		if (err) throw err;
 		res.send(JSON.stringify({ status: 200, error: null, response: "New Record is Added successfully" }));
-        let isOn =true;
-        wss.on('connection', (ws) => {
-            console.log('New connection');
-            
-            // Add client to the list of connected clients
-            clients.push(ws);
-          
-            // Send initial flashlight state to newly connected device
-          //   ws.send(JSON.stringify({ type: 'flashlight', isOn }));
-          ws.on('close', () => {
-              console.log('Connection closed');
-              
-              // Remove client from the list of connected clients
-              const index = clients.indexOf(ws);
-              if (index !== -1) {
-                clients.splice(index, 1);
-              }
-            });
+        // let isOn =true;
+        
          
         // Broadcast flashlight state to all connected devices
-        const broadcastMessage = JSON.stringify({ type: 'refresh', isOn:true,title:req.body.titl ,priority:req.body.pri,address:req.body.add });
-        clients.forEach((client) => {
-          if (client.readyState === WebSocket.OPEN) {
-            client.send(broadcastMessage);
-          }
-        });
-    });
+        // const broadcastMessage = JSON.stringify({ type: 'refresh', isOn:true,title:req.body.titl ,priority:req.body.pri,address:req.body.add });
+        // clients.forEach((client) => {
+        //   if (client.readyState === WebSocket.OPEN) {
+        //     client.send(broadcastMessage);
+        //   }
+        // });
+   
 	});
 });
 
@@ -336,6 +335,20 @@ app.get("/fetch", (req, res) => {
 		})
 	});
 
+    app.post("/pick", (req, res) => {
+
+
+        let sql4=`UPDATE cases SET ngo_id = '${req.body.Uid}' ,status='2' where case_id="${req.body.case}"`;
+        let query = conn.query(sql4,(err, result) => {
+            if (err) throw err;
+        
+            
+            res.send(JSON.stringify({ status: 200, error: null, response: result }));
+        
+        
+            })
+        });
+
 
     app.get("/fetchngo", (req, res) => {
 
@@ -345,7 +358,7 @@ app.get("/fetch", (req, res) => {
             if (err) throw err;
         
             
-            res.send(JSON.stringify({ status: 500, error: null, response: result }));
+            res.send(JSON.stringify({ status: 200, error: null, response: result }));
         
         
             })
@@ -455,7 +468,14 @@ app.post("/casedesp", (req, res) => {
   })  
 
   app.post("/orderlist", (req, res) => {
-	let sql = `SELECT * FROM cases where user_id="${req.body.uid}"`;
+    let sql
+    if(req.body.typ=="user"){
+
+         sql= `SELECT * FROM cases where user_id="${req.body.uid}"`;
+    }
+    else{
+        sql= `SELECT * FROM cases where ngo_id="${req.body.uid}" or user_id="${req.body.uid}"`;
+    }
 	let query = conn.query(sql, async (err,result) => {
   
   if (err) {

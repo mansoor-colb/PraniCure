@@ -4,7 +4,7 @@
 
 <head>
 	<!-- Meta -->
-    <script src="assets/js/navbaractivate.js"></script>
+    <script src="assets/js/navbaractivate1.js"></script>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;family=Roboto+Slab:wght@100;300;500;600;800&amp;display=swap" rel="stylesheet">
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .main-bar.sticky-header {
             padding-top: 10px;
@@ -430,7 +430,7 @@ window.location.href=`tracking-order2.html?id=${id}`
         async function load(){
             await getUserLocation();
         // alert("kk")
-        $("#tbody").html('')
+        $("#posts").html('')
         await fetch('http://localhost:9000/fetchngo')
         .then(response => response.json())
         .then(data =>{ 
@@ -439,7 +439,7 @@ window.location.href=`tracking-order2.html?id=${id}`
                 return b.ID - a.ID;
             });
             console.log(data)
-            $.each(data.response,async function(key,value){
+            $.each(data.response,function(key,value){
                 console.log(value.Fname)
                 $("#posts").html()
                 let pri=''
@@ -474,7 +474,7 @@ else{
     $("#posts").append(
                     `<div  class="item-box" style="flex-direction: column; justify-content: center;align-items: flex-end;">
                             <div class="item-media" style="width: 100%; object-fit: cover;">
-                                <img src="${ph}" alt="food" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
+                                <img src="${ph}" class="cases-list" alt="food" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
                             </div>
                             <div class="item-content" style="padding:10px 15px;" >
                                 <a href="product.html"><h6 class="mb-0">${value.title}</h6></a>
@@ -491,9 +491,6 @@ else{
  
     // console.log(data.distances[0]);
   })
-  .catch(function(error) {
-    console.error(error);
-  });
 // var ui= await geo('12.892920','77.528310',`${value.latitude}`,`${value.longitude}`);
                
     
@@ -508,19 +505,20 @@ else{
     }
 
     load()
-    alert(8)
-   const ws = new WebSocket('wss://localhost:9000');
+    // alert(8)
+   const ws = new WebSocket('ws://localhost:6500/websocket');
 // const hh=document.getElementById("hh");
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
 
-        if (data.type === 'refresh') {
+        if (data.type == 'ngo') {
+           
           // Update flashlight state on the UI
         //   const flashlightStateElement = document.getElementById('flashlight-state');
         //   flashlightStateElement.textContent = data.isOn ? 'ON' : 'OFF';
 
           // Trigger flashlight and vibration
-          if (data.isOn) {
+          if (true) {
             let prio='';
             if(data.priority==1){
                 prio='Emergency 🚨🚨'
@@ -532,22 +530,34 @@ else{
             else{
                 prio="Easy"
             }
-          
-           sendNotification({
-            title: `${prio}--${data.title}`,
-            message: `${data.address}`,
-            icon:'https://cdn2.iconfinder.com/data/icons/mixed-rounded-flat-icon/512/megaphone-64.png',
-            clickCallback: function () {
-                load()
-            }
-          });
+            swal(`${prio}`,`${data.title} \n ${data.address}`)
+            load();
+        //    sendNotification({
+        //     title: `${prio}--${data.title}`,
+        //     message: `${data.address}`,
+        //     icon:'https://cdn2.iconfinder.com/data/icons/mixed-rounded-flat-icon/512/megaphone-64.png',
+        //     clickCallback: function () {
+        //         load()
+        //     }
+        //   });
+// sendNotification({
+//   title: 'New Notification',
+//   message: 'Your message goes here',
+//   icon:'https://cdn2.iconfinder.com/data/icons/mixed-rounded-flat-icon/512/megaphone-64.png',
+//   clickCallback: function () {
+//     load();
+//     alert('do something when clicked on notification');
+//   }
+// });
           } 
         }
       };
 
+// function modal(){
 
+// }
 
-      function sendNotification (data) {
+function sendNotification (data) {
   if (data == undefined || !data) { return false }
   var title = (data.title === undefined) ? 'Notification' : data.title
   var clickCallback = data.clickCallback
@@ -577,6 +587,9 @@ else{
           })
       } else { sendNotification();
       }}}
+
+
+
 async function geo(ulat,ulon,plat,plon){
     const options = {
   method: 'GET',
@@ -789,6 +802,13 @@ else{
 
 
 </script>
+<script>
+    fetch("navbar1.html")
+      .then((response) => response.text())
+      .then((content) => {
+        document.getElementById("navbarContainer").innerHTML = content;
+      });
+    </script>
 </body>
 
 

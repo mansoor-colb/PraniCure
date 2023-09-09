@@ -1,64 +1,47 @@
+const express = require('express');
+const WebSocket = require('ws');
 
-
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require('cors');
 const app = express();
-const https = require('https')
-const fs = require('fs')
-let cron = require('node-cron')
-app.use(bodyParser.json());
-app.use(express.static('public'))
+const server = app.listen(6500, () => {
+  console.log('Server listening on port 6500');
+});
 
-const port = process.env.PORT ||7000
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cors())
-// parse application/json
-
-// const httpsOptions = {
-// 	key: fs.readFileSync('key.pem'),
-// 	cert: fs.readFileSync('cert.pem')
-//   }
-
-//Create Database Connection
-let task=cron.schedule("*/5 * * * * *", function() {
-    let sql = `SELECT * FROM cases where status="1"`;
-	let query = conn.query(sql, async (err,result) => {
+const wss = new WebSocket.Server({ server });
+const clients = [];
+var isOn=false;
+wss.on('connection', (ws) => {
+  console.log('New connection');
   
-  if (err) {
-			  console.log(err)
-			//   res.send(JSON.stringify({ status: 500, error: null, response:"error" }));
-			}
-			else{
-                let resulte = Object.values(JSON.parse(JSON.stringify(result)));
-                resulte.forEach(function(itemm){
-                    let sql1 = `SELECT latitude,longitude FROM ngo `;
-                    let str='';
-                        let query1 = conn.query(sql, async (err,resultt) => {
-                            if (err) {}
-                            else{
-                                let resultet = Object.values(JSON.parse(JSON.stringify(resultt)));
-                                resultet.forEach(function(item,k){
-                                    
+  // Add client to the list of connected clients
+  clients.push(ws);
 
-                                })
-                               
-                             
-                                  
-                                  
+  // Send initial flashlight state to newly connected device
+  ws.send(JSON.stringify({ type: 'flashlight', isOn }));
 
-                            }
-                        })
-                });
-              
-			}
-  
-	})
+  ws.on('message', (message) => {
+    const data = JSON.parse(message);
+console.log(data.type)
+    if (data.type === 'ngo') {
+      // Toggle flashlight state
+      isOn = !isOn;
 
-})
+      // Broadcast flashlight state to all connected devices
+      const broadcastMessage = JSON.stringify({ type: 'ngo', title:data.titl,address:data.address,priority:data.priority });
+      clients.forEach((client) => {
+        if (client.readyState === WebSocket.OPEN) {
+          client.send(broadcastMessage);
+        }
+      });
+    }
+  });
 
-
-app.listen(port, () => {
-	console.log("server started on port 7000...");
+  ws.on('close', () => {
+    console.log('Connection closed');
+    
+    // Remove client from the list of connected clients
+    const index = clients.indexOf(ws);
+    if (index !== -1) {
+      clients.splice(index, 1);
+    }
+  });
 });
