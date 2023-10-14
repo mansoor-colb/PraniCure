@@ -31,10 +31,10 @@ app.use(cors())
 
 
 const conn = mysql.createConnection({
-	host: "localhost",
-	user: "root",
-	password: "",
-	database: "pranicure",
+	host: "bo5j2i4h4yhwhs2h30uy-mysql.services.clever-cloud.com",
+	user: "ucacybx6bwuumwqv",
+	password: "EeFd6BAFiCt6ue6Wt3M8",
+	database: "bo5j2i4h4yhwhs2h30uy",
 
 	// host: "bkiavxeu5zu9pmpwonnz-mysql.services.clever-cloud.com",
 	// user: "uknhl4z8opncvk4m",
