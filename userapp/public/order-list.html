@@ -34,10 +34,39 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     
     <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;family=Roboto+Slab:wght@100;300;500;600;800&amp;display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js" integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+
+    <style>
+        /* Replicated styles for the new toggle buttons */
+/* Replicate styles for the toggle buttons */
+.toggle-button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.toggle-button.active {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.toggle-button:not(.active) {
+    background-color: transparent;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+    </style>
+
 </head>   
 <body class="bg-white">
 <div class="page-wraper">
@@ -46,43 +75,6 @@
     <div id="preloader">
         <div class="spinner"></div>
     </div>
-    <!-- Preloader end-->
-    
-	<!-- Header -->
-    <!-- <header class="header" style="padding-top: 5px; border: 0">
-        <div class="main-bar">
-          <div class="container">
-            <div class="header-content">
-              <div class="left-content">
-                <div class="dz-info d-flex align-items-center">
-                  <img src="assets/images/whitelogo.png" width="30" alt="" />
-                  <h4 class="name mb-0" style="color: rgb(91, 91, 91)">
-                    &nbsp;Prani<span style="color: rgb(60, 164, 255)"
-                      >Care</span
-                    >
-                  </h4>
-                </div>
-              </div>
-              <div class="mid-content"></div>
-              <div class="right-content">
-                <a href="profile.html">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="21"
-                    fill="#bfc9da"
-                    xmlns:v="https://vecta.io/nano"
-                  >
-                    <path
-                      d="M8 7.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 1 0 0 7.5zm7.5 9v1.5c-.002.199-.079.39-.217.532C13.61 20.455 8.57 20.5 8 20.5s-5.61-.045-7.282-1.718C.579 18.64.501 18.449.5 18.25v-1.5a7.5 7.5 0 1 1 15 0z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header> -->
 
     <div class="header">
         <div class="main-bar">
@@ -112,96 +104,15 @@
     
     <!-- Page Content -->
 	<div class="page-content">
-		<div class="container bottom-content"> 
-                <div class="order-status">
-                    <!-- <h5 class="title mb-2">Order ID #0012345</h5> -->
-                    <div class="tag-status">
-                        <span class="badge text-secondary style-1">IN PROGRESS</span>
-                        <!-- <a href="tracking-order.html" class="btn-link text-underline">Track Location</a> -->
-                    </div>
-                
-				<div class="item-list style-2 recent-jobs-list">
-					<ul id="progress">
-						<!-- <li>
-                            <div class="item-content">
-                                <div class="item-media media media-60">
-                                    <img src="assets/images/food/pic3.png" alt="logo">
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <h6 class="item-title"><a href="order-list.html">Timmy</a></h6>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </li>
-                        <li class="border-0">
-                            <div class="item-content">
-                                <div class="item-media media media-60">
-                                    <img src="assets/images/food/pic6.png" alt="logo">
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <h6 class="item-title"><a href="order-list.html">Jammy</a></h6>
-                                    </div>
-                                    <div class="item-footer">
-                                           
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </li> -->
-                    </ul>
-                    <div class="saprater"></div>    
-                    <div class="order-status my-3">
-                        <!-- <h5 class="title mb-2">Order ID #0012345</h5> -->
-                        <div class="tag-status">
-                            <span class="badge text-success style-2">DONE</span>
-                            <!-- <a href="javascript:void(0);" class="btn-link">View Details</a> -->
-                        </div>
-                    </div>
-                    <ul id="done">
-					
-                        <!-- <li>
-                            <div class="item-content">
-                                <div class="item-media media media-60">
-                                    <img src="assets/images/food/pic5.png" alt="logo">
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <h6 class="item-title"><a href="order-list.html">Manny</a></h6>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media media media-60">
-                                    <img src="assets/images/food/food1.png" alt="logo">
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <h6 class="item-title"><a href="order-list.html">Ani</a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> -->
-                    </ul>
-				</div>
-				<!-- Job List -->                    
-			</div>    
-		</div>
-	</div>
-    <!-- Page Content End-->
-	<!-- Menubar -->
+        
+    </div>
+
     <div id="navbarContainer">
         <script>
           var currentURL = window.location.href;
           activate(currentURL);
         </script>
-      </div><!-- Menubar -->
-    <!-- Theme Color Settings -->
+      </div>
 	<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom">
         <div class="offcanvas-body small">
             <ul class="theme-color-settings">
@@ -668,6 +579,10 @@ else{
 
         })
     </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 
