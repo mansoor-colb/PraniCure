@@ -336,7 +336,7 @@ let uid=localStorage.getItem("prani");
   let uid=localStorage.getItem("prani");
   let id=uid.split('-')
   $.ajax({
-    url:"http://localhost:9000/loadprof",
+    url:"http://localhost:7000/loadprof",
     type:"post",
     dataType: "json",
     data: { Uid:id[0]
@@ -377,7 +377,7 @@ $("#fileuploder").on("click",async function(){
        
        let formData = new FormData(); 
        formData.append("picfile", picfile.files[0]);
-       await fetch('http://localhost:9000/upload', {
+       await fetch('http://localhost:7000/upload', {
            method: "POST", 
            body: formData
    }).then(response => response.json())
@@ -408,7 +408,7 @@ $(document).on("click","#profupdate",function(){
 
 
           $.ajax({
-            url:"http://localhost:9000/updateprof",
+            url:"http://localhost:7000/updateprof",
             type:"post",
             dataType: "json",
             data: { Uid:id[0],Username:username,Pass:pass,Phone:phone,address:addr,lat: $("#addedit").data("lat"),lon:$("#addedit").data("lon"),img:picdata

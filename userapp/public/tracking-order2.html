@@ -262,7 +262,7 @@ let val=url.get('id')
 
 function load(){
     $.ajax({
-            url:"http://localhost:9000/casedesp",
+            url:"http://localhost:7000/casedesp",
             type:"post",
             dataType: "json",
             data: { caseid:val
@@ -363,7 +363,7 @@ if (minutesDiff < 60) {
 $("#tm").html(postedText)
 console.log('Posted:', postedText);
                     $.ajax({
-    url:"http://localhost:9000/loadprof",
+    url:"http://localhost:7000/loadprof",
     type:"post",
     dataType: "json",
     data: { Uid:res.response.user_id
@@ -404,7 +404,7 @@ $(document).on("click","#pick",function(){
     let uid=localStorage.getItem("prani");
   let id=uid.split('-')
     $.ajax({
-    url:"http://localhost:9000/pick",
+    url:"http://localhost:7000/pick",
     type:"post",
     dataType: "json",
     data: { Uid:id[0],case:val

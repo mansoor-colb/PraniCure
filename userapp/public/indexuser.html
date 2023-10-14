@@ -488,7 +488,7 @@
                 await getUserLocation();
                 // alert("kk")
                 $("#tbody").html('')
-                await fetch('http://localhost:9000/fetch')
+                await fetch('http://localhost:7000/fetch')
                     .then(response => response.json())
                     .then(data => {
 
@@ -672,7 +672,7 @@
                 $("#cls").slideDown();
                 $.ajax({
 
-                    url: `http://localhost:9000/glbsearch?search=${val}`,
+                    url: `http://localhost:7000/glbsearch?search=${val}`,
                     type: 'GET',
                     dataType: "json",
                     // data:{query:val},

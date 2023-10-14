@@ -358,7 +358,7 @@ for (let j = 0; j < 6; j++) {
 
 // }
 $.ajax({
-    url:"http://localhost:9000/caseupload",
+    url:"http://localhost:7000/caseupload",
     type:"post",
     dataType: "json",
     data: { user:id[0],caseid: otp, photo:img_array.join(','),titl:title,desc:desp,phon:phone,pri: priority,ty:type,add:address,status:1,lat:$("#location").data("lat"),long:$("#location").data("lon")
@@ -467,7 +467,7 @@ const formData = new FormData();
     }
     
     try {
-      const response = await fetch('http://localhost:9000/uploadmultiple', {
+      const response = await fetch('http://localhost:7000/uploadmultiple', {
         method: "POST",
         body: formData
       });

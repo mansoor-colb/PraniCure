@@ -431,7 +431,7 @@ window.location.href=`tracking-order2.html?id=${id}`
             await getUserLocation();
         // alert("kk")
         $("#posts").html('')
-        await fetch('http://localhost:9000/fetchngo')
+        await fetch('http://localhost:7000/fetchngo')
         .then(response => response.json())
         .then(data =>{ 
             
@@ -666,7 +666,7 @@ $("#search").on("keyup",function(){
 $("#cls").slideDown();
 $.ajax({
         
-        url:`http://localhost:9000/glbsearch?search=${val}`,
+        url:`http://localhost:7000/glbsearch?search=${val}`,
         type: 'GET',
         dataType: "json",
         // data:{query:val},

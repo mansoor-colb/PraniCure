@@ -39,7 +39,7 @@ $("#login").on("click",function(){
         
         }
         $.ajax({
-            url:"http://localhost:9000/login",
+            url:"http://localhost:7000/login",
             type:"post",
             dataType: "json",
             data: { user:name,Pass:pass

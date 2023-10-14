@@ -317,7 +317,7 @@
 
                 let formData = new FormData();
                 formData.append("picfile", picfile.files[0]);
-                await fetch('http://localhost:9000/upload', {
+                await fetch('http://localhost:7000/upload', {
                     method: "POST",
                     body: formData
                 }).then(response => response.json())
@@ -395,7 +395,7 @@
                     otp += digits[Math.floor(Math.random() * 10)];
                 }
                 $.ajax({
-                    url: "http://localhost:9000/signupemail",
+                    url: "http://localhost:7000/signupemail",
                     type: "post",
                     dataType: "json",
                     data: { Mail: mail, Otp: otp, Phone: phone },
@@ -422,7 +422,7 @@
             $("#validate").on("click", function () {
                 var mail = $("#email").val();
                 var otpvalue = $("#otpval").val();
-                $.ajax(`http://localhost:9000/validateotp?mail=${mail}&otpval=${otpvalue} `, {
+                $.ajax(`http://localhost:7000/validateotp?mail=${mail}&otpval=${otpvalue} `, {
                     type: 'GET',
                     dataType: 'json',
 
@@ -463,7 +463,7 @@
 
 
                             $.ajax({
-                                url: "http://localhost:9000/signup",
+                                url: "http://localhost:7000/signup",
                                 type: "post",
                                 dataType: "json",
                                 data: { Userid: uid, Usr: usr, Phone: phone, passwd: pass, Mail: mail, Mode: mode, img: picdata, address: addr, lat: lati, lon: long },
