@@ -32,6 +32,7 @@
 	
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -107,260 +108,27 @@
         
     </div>
 
-    <div id="navbarContainer">
-        <script>
-          var currentURL = window.location.href;
-          activate(currentURL);
-        </script>
-      </div>
-	<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom">
-        <div class="offcanvas-body small">
-            <ul class="theme-color-settings">
-                <li>
-                    <input class="filled-in" id="primary_color_8" name="theme_color" type="radio" value="color-primary" />
-					<label for="primary_color_8"></label>
-                    <span>Default</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_2" name="theme_color" type="radio" value="color-green" />
-					<label for="primary_color_2"></label>
-                    <span>Green</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_3" name="theme_color" type="radio" value="color-blue" />
-					<label for="primary_color_3"></label>
-                    <span>Blue</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_4" name="theme_color" type="radio" value="color-pink" />
-					<label for="primary_color_4"></label>
-                    <span>Pink</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_5" name="theme_color" type="radio" value="color-yellow" />
-					<label for="primary_color_5"></label>
-                    <span>Yellow</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_6" name="theme_color" type="radio" value="color-orange" />
-					<label for="primary_color_6"></label>
-                    <span>Orange</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_7" name="theme_color" type="radio" value="color-purple" />
-					<label for="primary_color_7"></label>
-                    <span>Purple</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_1" name="theme_color" type="radio" value="color-red" />
-					<label for="primary_color_1"></label>
-                    <span>Red</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_9" name="theme_color" type="radio" value="color-lightblue" />
-					<label for="primary_color_9"></label>
-                    <span>Lightblue</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_10" name="theme_color" type="radio" value="color-teal" />
-					<label for="primary_color_10"></label>
-                    <span>Teal</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_11" name="theme_color" type="radio" value="color-lime" />
-					<label for="primary_color_11"></label>
-                    <span>Lime</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_12" name="theme_color" type="radio" value="color-deeporange" />
-					<label for="primary_color_12"></label>
-                    <span>Deeporange</span>
-                </li>
-            </ul>
+    <footer class="menu">
+    
+        <div class="menu-inner">
+          <a href="user-home.html" id="homelink" class="menu-item">
+            <i class="fa fa-home" style="font-size:24px"></i>
+          </a>
+          <a href="indexuser.html" id="notiflink" class="menu-item">
+            <i class="fa fa-file-text"></i>
+          </a>
+          <a href="order-list.html" id="messagelink" class="menu-item">
+            <i class="fa fa-history"></i>
+          </a>
+          <a href="caseupload.html"  class="menu-item">
+            <i class="fa fa-camera"></i>
+    
+          </a>
         </div>
-    </div>
+      </footer>
 	<!-- Theme Color Settings End -->
 	<!-- CART -->
-	<div class="offcanvas offcanvas-bottom rounded-0" tabindex="-1" id="offcanvasBottom1">
-		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-			<i class="fa-solid fa-xmark"></i>
-		</button>
-        <div class="offcanvas-body container fixed">
-			<div class="item-list style-2">
-                <ul>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-media media media-60">
-                                <img src="assets/images/food/pic6.png" alt="logo">
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <h6 class="item-title"><a href="order-list.html">Chicken Briyani Haji Mahmud</a></h6>
-                                    <div class="item-subtitle">Coffe, Milk</div>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="me-3">$ 4.0</h6>
-                                        <del class="off-text"><h6>$ 8.9</h6></del>
-                                    </div>    
-                                    <div class="d-flex align-items-center">
-                                        <div class="dz-stepper border-1 ">
-                                            <input class="stepper" type="text" value="3" name="demo3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-media media media-60">
-                                <img src="assets/images/food/food1.png" alt="logo">
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <h6 class="item-title"><a href="order-list.html">Deluxe Super Burger Spicy</a></h6>
-                                    <div class="item-subtitle">Coffe, Milk</div>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="me-3">$ 7.2</h6>
-                                        <del class="off-text"><h6>$ 8.9</h6></del>
-                                    </div>    
-                                    <div class="d-flex align-items-center">
-                                        <div class="dz-stepper border-1 ">
-                                            <input class="stepper" type="text" value="3" name="demo3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-media media media-60">
-                                <img src="assets/images/food/pic3.png" alt="logo">
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <h6 class="item-title"><a href="order-list.html">Coffee Mocha / White Mocha</a></h6>
-                                    <div class="item-subtitle">Coffe, Milk</div>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="me-3">$ 12.0</h6>
-                                        <del class="off-text"><h6>$ 8.9</h6></del>
-                                    </div>    
-                                    <div class="d-flex align-items-center">
-                                        <div class="dz-stepper border-1 ">
-                                            <input class="stepper" type="text" value="3" name="demo3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-media media media-60">
-                                <img src="assets/images/food/pic6.png" alt="logo">
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <h6 class="item-title"><a href="order-list.html">Chicken Briyani Haji Mahmud</a></h6>
-                                    <div class="item-subtitle">Coffe, Milk</div>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="me-3">$ 4.0</h6>
-                                        <del class="off-text"><h6>$ 8.9</h6></del>
-                                    </div>    
-                                    <div class="d-flex align-items-center">
-                                        <div class="dz-stepper border-1 ">
-                                            <input class="stepper" type="text" value="3" name="demo3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-					<li>
-                        <div class="item-content">
-                            <div class="item-media media media-60">
-                                <img src="assets/images/food/pic6.png" alt="logo">
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <h6 class="item-title"><a href="order-list.html">Chicken Briyani Haji Mahmud</a></h6>
-                                    <div class="item-subtitle">Coffe, Milk</div>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="me-3">$ 4.0</h6>
-                                        <del class="off-text"><h6>$ 8.9</h6></del>
-                                    </div>    
-                                    <div class="d-flex align-items-center">
-                                        <div class="dz-stepper border-1 ">
-                                            <input class="stepper" type="text" value="3" name="demo3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-					<li>
-                        <div class="item-content">
-                            <div class="item-media media media-60">
-                                <img src="assets/images/food/pic6.png" alt="logo">
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <h6 class="item-title"><a href="order-list.html">Chicken Briyani Haji Mahmud</a></h6>
-                                    <div class="item-subtitle">Coffe, Milk</div>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="me-3">$ 4.0</h6>
-                                        <del class="off-text"><h6>$ 8.9</h6></del>
-                                    </div>    
-                                    <div class="d-flex align-items-center">
-                                        <div class="dz-stepper border-1 ">
-                                            <input class="stepper" type="text" value="3" name="demo3">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-			<div class="view-title">
-                <div class="container">
-					<ul>
-						<li>
-							<a href="javascript:void(0);" class="promo-bx">
-								Apply Promotion Code
-								<span>2 Promos</span>
-							</a>
-						</li>
-						<li>
-							<span>Subtotal</span>
-							<span>$54.76</span>
-						</li>
-						<li>
-							<span>TAX (2%)</span>
-							<span>-$1.08</span>
-						</li>
-						<li>
-							<h5>Total</h5>
-							<h5>$53.68</h5>
-						</li>
-					</ul>
-					<a href="payment.html" class="btn btn-primary btn-rounded btn-block flex-1 ms-2">CONFIRM</a>
-				</div>
-            </div>
-        </div>
-    </div>
+	
 	<!-- CART -->
 	<!-- FILTER -->
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom2">

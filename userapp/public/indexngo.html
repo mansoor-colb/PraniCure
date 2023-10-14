@@ -30,6 +30,8 @@
 	<link rel="stylesheet" href="assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
     <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/card-style.css">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -56,38 +58,16 @@
     <!-- Preloader end-->
     
     <!-- Header -->
-    <header class="header" style="padding-top: 5px; border: 0">
-        <div class="main-bar">
-          <div class="container">
-            <div class="header-content">
-              <div class="left-content">
-                <div class="dz-info d-flex align-items-center">
-                  <img src="assets/images/whitelogo.png" width="30" alt="" />
-                  <h4 class="name mb-0" style="color: rgb(91, 91, 91)">
-                    &nbsp;Prani<span style="color: rgb(60, 164, 255)"
-                      >Care</span
-                    >
-                  </h4>
-                </div>
-              </div>
-              <div class="mid-content"></div>
-              <div class="right-content">
-                <a href="profile.html">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="21"
-                    fill="#bfc9da"
-                    xmlns:v="https://vecta.io/nano"
-                  >
-                    <path
-                      d="M8 7.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 1 0 0 7.5zm7.5 9v1.5c-.002.199-.079.39-.217.532C13.61 20.455 8.57 20.5 8 20.5s-5.61-.045-7.282-1.718C.579 18.64.501 18.449.5 18.25v-1.5a7.5 7.5 0 1 1 15 0z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+    <header class="header">
+        <div>
+          <img class="logo" src="assets/images/logo.png" alt="">
+        </div>
+    
+        <div class="header-buttons">
+    
+          <button class="avatar" onclick="location.href='profile.html'">
+            <img src="assets\images\dog_avatar.jpeg" />
+          </button>
         </div>
       </header>
 
@@ -153,7 +133,8 @@
                         </div>
                     </div> -->
 					<!-- Item box Start -->
-                    <a href="" class="btn btn-outline-primary btn-rounded btn-block">VIEW MORE</a>
+
+                    <!-- <a href="" class="btn btn-outline-primary btn-rounded btn-block">VIEW MORE</a> -->
 				</div>
 			</div>    
 		</div>
@@ -162,231 +143,21 @@
     <!-- Page Content End-->
     
     <!-- Menubar -->
-    <div id="navbarContainer">
-        <script>
-            var currentURL = window.location.href;
-            activate(currentURL);
-        </script>
-      </div>
+    <footer class="menu" >
+    
+        <div class="menu-inner" style="justify-content: center;gap:30px;">
+          <a href="indexngo.html" id="homelink" class="menu-item">
+            <i class="fa fa-home" style="font-size:24px"></i>
+          </a>
+          <a href="ngo-order-list.html" id="messagelink" class="menu-item">
+            <i class="fa fa-history"></i>
+          </a>
+        
+        </div>
+      </footer>
 	<!-- Menubar -->
 	
-	<!-- Theme Color Settings -->
-	<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom">
-        <div class="offcanvas-body small">
-            <ul class="theme-color-settings">
-                <li>
-                    <input class="filled-in" id="primary_color_8" name="theme_color" type="radio" value="color-primary" />
-					<label for="primary_color_8"></label>
-                    <span>Default</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_2" name="theme_color" type="radio" value="color-green" />
-					<label for="primary_color_2"></label>
-                    <span>Green</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_3" name="theme_color" type="radio" value="color-blue" />
-					<label for="primary_color_3"></label>
-                    <span>Blue</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_4" name="theme_color" type="radio" value="color-pink" />
-					<label for="primary_color_4"></label>
-                    <span>Pink</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_5" name="theme_color" type="radio" value="color-yellow" />
-					<label for="primary_color_5"></label>
-                    <span>Yellow</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_6" name="theme_color" type="radio" value="color-orange" />
-					<label for="primary_color_6"></label>
-                    <span>Orange</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_7" name="theme_color" type="radio" value="color-purple" />
-					<label for="primary_color_7"></label>
-                    <span>Purple</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_1" name="theme_color" type="radio" value="color-red" />
-					<label for="primary_color_1"></label>
-                    <span>Red</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_9" name="theme_color" type="radio" value="color-lightblue" />
-					<label for="primary_color_9"></label>
-                    <span>Lightblue</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_10" name="theme_color" type="radio" value="color-teal" />
-					<label for="primary_color_10"></label>
-                    <span>Teal</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_11" name="theme_color" type="radio" value="color-lime" />
-					<label for="primary_color_11"></label>
-                    <span>Lime</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_12" name="theme_color" type="radio" value="color-deeporange" />
-					<label for="primary_color_12"></label>
-                    <span>Deeporange</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-	<!-- Theme Color Settings End -->
-	<!-- CART -->
-	<div class="offcanvas offcanvas-bottom rounded-0" tabindex="-1" id="offcanvasBottom2" aria-modal="true" role="dialog" style="visibility: visible;">
-		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-			<i class="fa-solid fa-xmark"></i>
-		</button>
-        <div class="offcanvas-body container fixed p-0 m-0"  >
-			<br>
-            <header class="header">
-                <div class="main-bar">
-                    <div class="container">
-                        <div class="header-content">
-                            <div class="left-content">
-                               
-                                <h5 class="mb-0 ms-2 text-nowrap">Notification</h5>
-                            </div>
-                            <div class="mid-content">
-                            </div>
-                            <div class="right-content">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-			<div class="page-content bottom-content">
-                <div class="container"> 
-                    <a href="profile.html" class="notification bg-success">
-                        <div class="notification-content item-list">
-                            <div class="item-content">
-                                <div class="media media-35">
-                                    <img src="assets/images/author/pic1.png" alt="image">
-                                </div>
-                                <div class="item-inner">
-                                    <h6 class="title">Lily MacDonald</h6>
-                                    <p class="mb-0">Lorem ipsum dolor sit ameet..</p>
-                                </div>
-                                <div  class="ms-auto font-10 text-white d-flex align-items-center">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 3V6L8 7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                    12 min ago
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a  href="profile.html" class="notification bg-success">
-                        <div class="notification-content item-list">
-                            <div class="item-content">
-                                <div class="media media-35">
-                                    <img src="assets/images/avatar/1.jpg" alt="image">
-                                </div>
-                                <div class="item-inner">
-                                    <h6 class="title">Lily MacDonald</h6>
-                                    <p class="mb-0">Lorem ipsum dolor sit ameet..</p>
-                                </div>
-                                <div class="ms-auto font-10 text-white d-flex align-items-center">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 3V6L8 7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                    12 min ago
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="profile.html" class="notification">
-                        <div class="notification-content item-list">
-                            <div class="item-content">
-                                <div class="media media-35">
-                                    <img src="assets/images/avatar/2.jpg" alt="image">
-                                </div>
-                                <div class="item-inner">
-                                    <h6 class="title">Lily MacDonald</h6>
-                                    <p class="mb-0">Lorem ipsum dolor sit ameet..</p>
-                                </div>
-                                <div class="ms-auto font-10 text-dark d-flex align-items-center">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                    12 min ago
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="profile.html" class="notification">
-                        <div class="notification-content item-list">
-                            <div class="item-content">
-                                <div class="media media-35">
-                                    <img src="assets/images/avatar/3.jpg" alt="image">
-                                </div>
-                                <div class="item-inner">
-                                    <h6 class="title">Lily MacDonald</h6>
-                                    <p class="mb-0">Lorem ipsum dolor sit ameet..</p>
-                                </div>
-                                <div class="ms-auto font-10 text-dark d-flex align-items-center">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                    12 min ago
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="profile.html" class="notification">
-                        <div class="notification-content item-list">
-                            <div class="item-content">
-                                <div class="media media-35">
-                                    <img src="assets/images/avatar/4.jpg" alt="image">
-                                </div>
-                                <div class="item-inner">
-                                    <h6 class="title">Lily MacDonald</h6>
-                                    <p class="mb-0">Lorem ipsum dolor sit ameet..</p>
-                                </div>
-                                <div class="ms-auto font-10 text-dark d-flex align-items-center">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                    12 min ago
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="profile.html" class="notification">
-                        <div class="notification-content item-list">
-                            <div class="item-content">
-                                <div class="media media-35">
-                                    <img src="assets/images/avatar/5.jpg" alt="image">
-                                </div>
-                                <div class="item-inner">
-                                    <h6 class="title">Lily MacDonald</h6>
-                                    <p class="mb-0">Lorem ipsum dolor sit ameet..</p>
-                                </div>
-                                <div class="ms-auto font-10 text-dark d-flex align-items-center">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                    12 min ago
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+	
 	<!-- CART -->
 	
 	<!-- PWA Offcanvas -->
@@ -443,16 +214,16 @@ window.location.href=`tracking-order2.html?id=${id}`
                 console.log(value.Fname)
                 $("#posts").html()
                 let pri=''
-                if(value.priority==1){
-                    pri="Emergency"
+                if (value.priority == 1) {
+                                pri = '<p class = "rating" style="background:red;">Emergency</p>';
 
-                }
-                else if(value.priority==2){
-                    pri="Moderate"
-                }
-                else{
-                    pri="easy"
-                }
+                            }
+                            else if (value.priority == 2) {
+                                pri = '<p class = "rating" style="background:orange;">Moderate</p>';
+                            }
+                            else {
+                                pri = '<p class = "rating" style="background:green;">Not Serious</p>';
+                            }
   
    
     let you='--';
@@ -472,21 +243,25 @@ else{
     ph=ph[0]
 }
     $("#posts").append(
-                    `<div  class="item-box" style="flex-direction: column; justify-content: center;align-items: flex-end;">
-                            <div class="item-media" style="width: 100%; object-fit: cover;">
-                                <img src="${ph}" class="cases-list" alt="food" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
-                            </div>
-                            <div class="item-content" style="padding:10px 15px;" >
-                                <a href="product.html"><h6 class="mb-0">${value.title}</h6></a>
-                                <div class="item-footer mt-2">
-                                    <h6>${distance} kms away</h6> 
-                                    <a href="javascript:void(0);" class="item-bookmark">
-                                        
-                                        <span class="badge badge-secondary">${pri}</span>
-                                    </a>
+        `<div class = "cards-container">
+                                <div class = "card">
+                                <div class = "card-media">
+                                    <img src="${ph}" alt="food" class="cases-list" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
+                                    <div class = "bookmark"></div>
                                 </div>
-                            </div>
-                        </div>`
+                                <div class = "card-description">
+                                    <div class = "about-place">
+                                    <div class = "place">
+                                        <h5 class = "place-name" >${value.title}</h5>
+                                    </div>
+                                    <div class = "place-review">
+                                        ${pri}
+                                        <p class = "per-person">Banashankari</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>`
                 )
  
     // console.log(data.distances[0]);
@@ -677,20 +452,25 @@ $.ajax({
             if(res.response.length==0){
                 $("#posts").html('')
                 $("#posts").append(
-                    `<div  class="item-box" style="flex-direction: column; justify-content: center;align-items: flex-end;">
-                            <div class="item-media" style="width: 100%; object-fit: cover;">
-                                <img src="" alt="food" data-caseid=>
-                            </div>
-                            <div class="item-content" style="padding:10px 15px;" >
-                                <a href="product.html"><h6 class="mb-0"></h6></a>
-                                <div class="item-footer mt-2">
-                                    <h6> kms away</h6> 
-                                    <a href="javascript:void(0);" class="item-bookmark">
-                                        <span class="badge badge-secondary">Not found</span>
-                                    </a>
+                    `<div class = "cards-container">
+                                <div class = "card">
+                                <div class = "card-media">
+                                    <img src="${ph}" alt="food" class="cases-list" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
+                                    <div class = "bookmark"></div>
                                 </div>
-                            </div>
-                        </div>`
+                                <div class = "card-description">
+                                    <div class = "about-place">
+                                    <div class = "place">
+                                        <h5 class = "place-name" >${value.title}</h5>
+                                    </div>
+                                    <div class = "place-review">
+                                        ${pri}
+                                        <p class = "per-person">Banashankari</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>`
                     )
                     return
 

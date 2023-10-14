@@ -56,6 +56,7 @@
 
   <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style2.css" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/" />
@@ -158,37 +159,18 @@
             </div>
         </div>
     </div>
-    <header class="header" style="padding-top:5px;border: 0;">
-        <div class="main-bar">
-            <div class="container">
-                <div class="header-content">
-                    <div class="left-content">
-                        <div class="dz-info d-flex align-items-center">
-                            <img src="assets/images/whitelogo.png" width="30" alt="">
-                            <h4 class="name mb-0" style="color: rgb(91, 91, 91);">&nbsp;Prani<span style="color:rgb(60, 164, 255)">Care</span></h4>
-                        </div>
-                    </div>
-                    <div class="mid-content">
-                    </div>
-                    <div class="right-content">
-                      <a href="profile.html">
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="21"
-                        fill="#bfc9da"
-                        xmlns:v="https://vecta.io/nano"
-                      >
-                        <path
-                          d="M8 7.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 1 0 0 7.5zm7.5 9v1.5c-.002.199-.079.39-.217.532C13.61 20.455 8.57 20.5 8 20.5s-5.61-.045-7.282-1.718C.579 18.64.501 18.449.5 18.25v-1.5a7.5 7.5 0 1 1 15 0z"
-                        />
-                      </svg>
-                      </a>	
-                  </div>
-                </div>
-            </div>
+    <header class="header">
+        <div>
+          <img class="logo" src="assets/images/logo.png" alt="">
         </div>
-    </header>
+    
+        <div class="header-buttons">
+    
+          <button class="avatar" onclick="profile.html">
+            <img src="assets\images\dog_avatar.jpeg" />
+          </button>
+        </div>
+      </header>
     <!-- Header End -->
 	
     <!-- Page Content -->
@@ -257,15 +239,24 @@
     <!-- Page Content End-->
     
     <!-- Menubar -->
-    <div id="navbarContainer">
-        <script>
-            var currentURL = window.location.href;
-            activate(currentURL);
-        </script>
-	<!-- Menubar -->
-	
-    <!-- Theme Color Settings -->
-	</div>
+    <footer class="menu">
+    
+        <div class="menu-inner">
+          <a href="user-home.html" id="homelink" class="menu-item">
+            <i class="fa fa-home" style="font-size:24px"></i>
+          </a>
+          <a href="indexuser.html" id="notiflink" class="menu-item">
+            <i class="fa fa-file-text"></i>
+          </a>
+          <a href="order-list.html" id="messagelink" class="menu-item">
+            <i class="fa fa-history"></i>
+          </a>
+          <a href="caseupload.html" id="camera" class="menu-item">
+            <i class="fa fa-camera"></i>
+    
+          </a>
+        </div>
+      </footer>
 	<!-- Theme Color Settings End -->
 </div> 
 <!--**********************************
