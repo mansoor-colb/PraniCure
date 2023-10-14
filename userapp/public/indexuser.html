@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
     <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/card-style.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -428,19 +429,7 @@
         </div>
         <!-- CART -->
 
-        <!-- PWA Offcanvas -->
-        <div class="offcanvas offcanvas-bottom pwa-offcanvas">
-            <div class="container">
-                <div class="offcanvas-body small">
-                    <img class="logo" src="assets/images/logo.png" alt="">
-                    <h5 class="title">PraniCure on Your Home Screen</h5>
-                    <p class="pwa-text">Install PraniCure on your device to access the app at ease and quickly when in
-                        need.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-primary pwa-btn">Add to Home Screen</a>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas-backdrop pwa-backdrop"></div>
+ 
         <!-- PWA Offcanvas End -->
 
     </div>
@@ -501,14 +490,14 @@
                             $("#posts").html()
                             let pri = ''
                             if (value.priority == 1) {
-                                pri = "Emergency"
+                                pri = '<p class = "rating" style="background:red;">Emergency</p>';
 
                             }
                             else if (value.priority == 2) {
-                                pri = "Moderate"
+                                pri = '<p class = "rating" style="background:orange;">Moderate</p>';
                             }
                             else {
-                                pri = "easy"
+                                pri = '<p class = "rating" style="background:green;">Not Serious</p>';
                             }
                             // const options = {
                             //     method: 'GET',
@@ -560,21 +549,25 @@
                                         ph = ph[0]
                                     }
                                     $("#posts").append(
-                                        `<div  class="item-box" style="flex-direction: column; justify-content: center;align-items: flex-end;">
-                            <div class="item-media" style="width: 100%; object-fit: cover;">
-                                <img src="${ph}" alt="food" class="cases-list" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
-                            </div>
-                            <div class="item-content" style="padding:10px 15px;" >
-                                <a href="product.html"><h6 class="mb-0">${value.title}</h6></a>
-                                <div class="item-footer mt-2">
-                                    <h6>${distance} kms away</h6> 
-                                    <a href="javascript:void(0);" class="item-bookmark">
-                                        <span class="badge badge-secondary">${you}</span>
-                                        <span class="badge badge-secondary">${pri}</span>
-                                    </a>
+                                        `<div class = "cards-container">
+                                <div class = "card">
+                                <div class = "card-media">
+                                    <img src="${ph}" alt="food" class="cases-list" data-caseid=${value.case_id} onclick="openn('${value.case_id}')">
+                                    <div class = "bookmark"></div>
                                 </div>
-                            </div>
-                        </div>`
+                                <div class = "card-description">
+                                    <div class = "about-place">
+                                    <div class = "place">
+                                        <h5 class = "place-name" >${value.title}</h5>
+                                    </div>
+                                    <div class = "place-review">
+                                        ${pri}
+                                        <p class = "per-person">Banashankari</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>`
                                     )
 
                                     // console.log(data.distances[0]);
