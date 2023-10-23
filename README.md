@@ -29,6 +29,17 @@ Start the Node.js server by running the following command:
 Access PraniCure by opening your web browser and navigating to http://localhost:3000.
 
 # Usage
+
+For quick testing use:
+# User Login
+webdearsproject@gmail.com 
+Mansoor ahmed
+
+# Ngo Login 
+jobyjosh21@gmail.com
+josh
+
+# Note:Open user portal in one device and Ngo in another. 
 Once PraniCure is running, you can use the app to send requests for stray animal assistance or pet medical assistance:
 
 # Stray Animal Assistance:
