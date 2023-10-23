@@ -38,7 +38,7 @@ Pass=Mansoor ahmed
 Ngo Login 
 User=jobyjosh21@gmail.com
 Pass=josh
-
+Access url:https://praniapp.webmanage.repl.co/onboarding.html
 # Note:Open user portal in one device and Ngo in another. 
 Once PraniCure is running, you can use the app to send requests for stray animal assistance or pet medical assistance:
 
