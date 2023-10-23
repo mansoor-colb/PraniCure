@@ -31,13 +31,13 @@ Access PraniCure by opening your web browser and navigating to http://localhost:
 # Usage
 
 For quick testing use:
-# User Login
-webdearsproject@gmail.com 
-Mansoor ahmed
+User Login
+User=webdearsproject@gmail.com 
+Pass=Mansoor ahmed
 
-# Ngo Login 
-jobyjosh21@gmail.com
-josh
+Ngo Login 
+User=jobyjosh21@gmail.com
+Pass=josh
 
 # Note:Open user portal in one device and Ngo in another. 
 Once PraniCure is running, you can use the app to send requests for stray animal assistance or pet medical assistance:
